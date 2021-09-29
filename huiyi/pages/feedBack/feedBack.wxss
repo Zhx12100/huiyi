@@ -1,0 +1,265 @@
+page {
+    background: #F5F5F5;
+    height: 100%;
+}
+
+.info-box {
+    background: white;
+    border-radius: 0rpx;
+    margin: 24rpx 0 25rpx;
+    padding: 0 25rpx;
+    box-shadow: 0px 2rpx 10rpx 0rpx rgba(217, 215, 209, 0.5);
+    z-index: 2;
+    position: relative;
+}
+
+.info-box .ico {
+    position: relative;
+}
+
+.info-box .ico image {
+    width: 48rpx;
+    height: 48rpx;
+    object-fit: contain;
+    position: relative;
+}
+
+.info-box .ico .title {
+    font-size: 30rpx;
+    color: #333;
+    font-weight: bold;
+}
+
+.info-box .area-box .start-area {
+    position: relative;
+}
+
+.info-box .area-box .start-area picker {
+    position: relative;
+    z-index: 9999;
+}
+
+.info-box .area-box .area-text {
+    font-size: 30rpx;
+    color: #333;
+}
+
+.info-box .tips {
+    font-size: 30rpx;
+    color: #ccc;
+}
+
+.info-box .inp-box .tips {
+    width: 100%;
+    height: 116rpx;
+}
+
+.info-box .guide {
+    width: 28rpx;
+    height: 28rpx;
+    font-size: 0;
+}
+
+.info-box .guide image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.info-box .guide .title {
+    font-size: 30rpx;
+    color: #333;
+}
+
+.info-box .ico {
+    width: 160rpx;
+    text-align: left;
+    font-size: 0;
+    flex-shrink: 0;
+}
+
+.info-box .area-box .start-area {
+    border-bottom: 1px solid #E6E6E6;
+}
+
+.info-box .area-box .picker {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.info-box .area-box .picker .right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 116rpx;
+    padding-left: 45rpx;
+}
+
+.info-box .area-box .end-area .picker .right {
+    border-bottom: none;
+}
+
+.info-box .area-box .end-area {
+    border-bottom: 1px solid #E6E6E6;
+}
+.tops{
+    border-top: 1px solid #E6E6E6;
+}
+.info-box .inp-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* border-bottom: 1px solid #E6E6E6; */
+}
+
+.info-box .inp-box:last-child {
+    border-bottom: none;
+}
+
+.info-box .inp-box .right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 116rpx;
+    padding-left: 45rpx;
+}
+
+.info-box .inp-box .right .guide {
+    width: auto;
+}
+
+.info-box .inp-box .right input {
+    width: 100%;
+    color: #333;
+    height: 100%;
+    line-height: 100%;
+    text-align: right;
+}
+
+.switch-box{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.switch-box .picker{
+    width: 120rpx;
+    height: 116rpx;
+    line-height: 116rpx;
+    font-family: SourceHanSansCN;
+    font-weight: 400;
+    color: #cacaca;
+    padding: 0 10rpx;
+    text-align: center;
+}
+.switch-box .picker.bld{
+    color: #333;
+}
+
+.tbtb{
+    display: flex;
+    flex-direction: column;
+
+}
+.tbtb .ico{
+    height: 100rpx;
+    text-align: left;
+    width: 100%;
+}
+.tbtb .ico .title{
+    height: 100%;
+    line-height: 100rpx;
+}
+.tbtb .right {
+    height: auto!important;
+    padding-left: 0!important;
+    
+}
+.tbtb .right textarea{
+    width: 100%!important;
+    height: 260rpx!important;
+    /* border: 2rpx solid #E6E6E6!important; */
+    border-radius: 16rpx;
+    padding: 20rpx;
+    box-sizing: border-box;
+    font-size: 28rpx;
+}
+
+.operate-box{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 110rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    z-index:9999;
+    background: white;
+    padding-top: 5rpx;
+  }
+  .operate-box button{
+    width: 94%!important;
+    height: 74rpx;
+    border-radius: 8px;
+    font-size: 32rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .operate-box .audit{
+    background: #3377FF;
+    border: 2px solid #3377FF;
+    color: white;
+  }
+  .operate-box .audit-none{
+    background: white;
+    color: #333;
+    border: 1rpx solid #B3B3B3;
+  }
+
+  .add-image{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin: 40rpx 0;
+  }
+  .add-image .list{
+    width: 160rpx;
+    height: 160rpx;
+    border-radius: 16rpx;
+    overflow: hidden;
+    margin-right: 14rpx;
+    margin-bottom: 8rpx;
+  }
+  .add-image .adds{
+    background: #F3F5FA;
+    border: 2px solid #E6E6E6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+  .add-image .adds image{
+    width: 70rpx;
+    height: 70rpx;
+    border-radius: 16rpx;
+  }
+
+  .add-image .img-box{
+    position: relative;
+    overflow: initial!important;
+  }
+  .add-image .img-box > .zhutu{
+    width: 100%;
+    height: 100%;
+  }
+  .add-image .img-box > .del{
+    width: 34rpx;
+    height: 34rpx!important;
+    position: absolute;
+    right: -17rpx;
+    top: -17rpx;
+  }

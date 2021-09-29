@@ -1,0 +1,6 @@
+{
+  "usingComponents": {},
+  "navigationBarTitleText": "运单列表",
+  "onReachBottomDistance":0 ,
+  "backgroundTextStyle":"dark"
+}

@@ -1,0 +1,15 @@
+<view class="container">
+  <view class="logo-box">
+    <view class="cont">
+      <image mode="widthFix" src="/images/pic.png"></image>
+      <view class="title">欢迎来到会议室预订服务平台</view>
+      <view class="text">移动管理，提高效率</view>
+    </view>
+    <view class="but-box" data-type="arrange" bindtap="goIndex" wx:if="{{type==1}}">
+      <button>进入会议室管理中心</button>
+    </view>
+    <view class="but-box" data-type="user" bindtap="goIndex" wx:else>
+      <button>马上预订会议室</button>
+    </view>
+  </view>
+</view>

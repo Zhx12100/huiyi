@@ -1,0 +1,30 @@
+{
+    "pages": [
+        "pages/status/status",
+        "pages/feedBack/feedBack",
+        "pages/feedBackResult/feedBackResult",
+        "pages/my/my",
+        "pages/index/index",
+        "pages/User/arrange/arrange",
+        "pages/User/arrangeDetail/arrangeDetail",
+        "pages/User/auditDetail/auditDetail",
+        "pages/User/auditBill/auditBill",
+        "pages/Administration/auditBill/auditBill",
+        "pages/Administration/roomManagement/roomManagement",
+        "pages/Administration/roomManagementDetail/roomManagementDetail",
+        "pages/Administration/auditDetail/auditDetail",
+        "pages/login/index",
+        "pages/Administration/arrange/arrange",
+        "pages/guide/guide",
+        "pages/bindingInfo/bindingInfo",
+        "pages/component/calendar/calendar"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "WeChat",
+        "navigationBarTextStyle": "black"
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
+}

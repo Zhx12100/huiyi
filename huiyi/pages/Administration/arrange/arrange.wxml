@@ -1,0 +1,45 @@
+<!--index.wxml-->
+<calendar bind:change="dateChange" spot="{{spot}}" defaultTime="{{defaultTime}}"></calendar>
+<view class="huiyi-box">
+	<view class="list" wx:for="{{items}}" wx:key="value" wx:for-item="item" wx:for-index="index">
+		<view class="title">
+			<view class="left">
+				<view class="img-box">
+					<image mode="widthFix" src="/images/huiyi.png"></image>
+				</view>
+				<view class="text1">
+					{{item.meet_name}}
+				</view>
+			</view>
+			<view class="right">
+				可容纳 <text class="active">{{item.people_count}}</text> 人
+			</view>
+		</view>
+		<view class="table-header">
+			<view class="left">
+				预约人
+			</view>
+			<view class="right">
+				已预约时段
+			</view>
+		</view>
+		<view class="table-body">
+			<view class="list" wx:for="{{item.time_list}}" wx:key="value" wx:for-item="itemList" wx:for-index="indexList"
+			wx:if="{{indexList<=item.indexLists}}">
+				<view class="left">
+					{{itemList.name}}{{indexList}}
+				</view>
+				<view class="right">
+					<view>{{itemList.time}}</view>
+					<!-- <view>10 : 00~10 : 30</view> -->
+				</view>
+			</view>
+		</view>
+		<view class="showMore" bindtap="showMore" data-index="{{index}}" wx:if="{{item.time_list.length>3}}">
+			{{item.indexLists==3?'查看全部':'收起'}}
+		</view>
+		<view class="showMoreNone" wx:if="{{item.time_list.length==0}}">
+			暂无
+		</view>
+	</view>
+</view>

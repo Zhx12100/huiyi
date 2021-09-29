@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "calendar":"../../component/calendar/calendar"
+  },
+  "navigationBarTitleText": "会议室安排",
+  "navigationBarBackgroundColor": "#3b7dff"
+}

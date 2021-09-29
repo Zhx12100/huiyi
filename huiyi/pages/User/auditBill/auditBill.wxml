@@ -1,0 +1,63 @@
+<wxs module="filters" src="./filters.wxs"></wxs>
+<view class="inp-box">
+  <view class="input-box">
+    <view class="img-box">
+      <image src="/images/sousuo.png"></image>
+    </view>
+    <input type="text" bindconfirm="onConfirms" bindinput="bindSearch" placeholder="输入会议室名称进行搜索" placeholder-style="color:#B3B3B3"></input>
+  </view>
+</view>
+<view class="swiper-tab">
+  <view class="swiper-tab-list {{currentTab==='' ? 'on' : ''}}" data-current="" bindtap="swichNav">
+    全部
+  </view>
+  <view class="swiper-tab-list {{currentTab==='status-00' ? 'on' : ''}}" data-current='status-00' bindtap="swichNav">
+    待审批
+  </view>
+  <view class="swiper-tab-list {{currentTab=='status-01' ? 'on' : ''}}" data-current='status-01' bindtap="swichNav">
+    已审批
+  </view>
+</view>
+<scroll-view scroll-y="true" class="swiper-box" bindscrolltolower="scrollHandler" 
+  style="height:calc(100vh - {{winHeight}}rpx)"
+  bindrefresherrefresh="onRefresh" refresher-triggered="{{triggered}}" refresher-enabled="true"
+  model:scroll-top="{{myScrollTop}}"
+>
+  <view class="list" wx:for="{{list}}" wx:key="value" wx:for-item="item" wx:for-index="index">
+    <view bindtap="goWayDetail" data-id="{{item.order_id}}">
+      <view class="tit">
+        <view class="no">
+          <view class="img-box">
+            <image mode="widthFix" src="/images/huiyi.png"></image>
+          </view>
+          <view class="text1">
+            {{item.meet_name}}
+          </view>
+        </view>
+        <view class="status">
+          <button class="{{filters.getSwitchStatus(item.audit_status)}}">{{item.audit_status}}</button>
+          <view class="img-box">
+            <image mode="widthFix" src="/images/jiantou.png"></image>
+          </view>
+        </view>
+      </view>
+      <view class="time">
+        <view class="text">预约人: {{item.name}}</view>
+        <view class="text">预约时段: {{item.times}}</view>
+      </view>
+      <view class="but-box">
+        <button class="cacel" wx:if="{{item.audit_status=='审核中'}}" catchtap="cancelOrder" data-id="{{item.order_id}}">
+          关闭预约
+        </button>
+      </view>
+    </view>
+  </view>
+  <view class="weui-loadmore" wx:if="{{isHideLoadMore}}">
+    <image src="/images/loading.gif" class="weui-loading"></image>
+    <view class="weui-loadmore__tips">正在加载</view>
+  </view>
+  <view class="weui-loadmore" wx:if="{{!isHideLoadMore}}">
+    <!-- <image src="/images/loading.gif" class="weui-loading"></image> -->
+    <view class="weui-loadmore__tips">暂无更多</view>
+  </view>
+</scroll-view>

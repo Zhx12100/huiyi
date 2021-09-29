@@ -1,0 +1,39 @@
+<view class="container">
+  <view class="logo-box">
+    <image src="/images/blueBack.png"></image>
+    <view class="cont">
+      <image src="/images/logo2x.png"></image>
+      <view class="text">会议室预订服务平台</view>
+    </view>
+  </view>
+  <view class="info-box-middle">
+    <view class="tit">
+      <view class="text">请填写以下信息进行绑定</view>
+    </view>
+    <view class="cont">
+      <view class="inp-box">
+        <view class="ico">
+          <view class="title">ID号</view>
+        </view>
+        <view class="right">
+          <view class="tips">
+            <input type="text" class="inputs" bindinput="bindID" placeholder-style="color:#ccc;" placeholder="请输入组织机构ID" />
+          </view>
+        </view>
+      </view>
+      <view class="inp-box">
+        <view class="ico">
+          <view class="title">姓名</view>
+        </view>
+        <view class="right">
+          <view class="tips">
+            <input type="text" class="inputs" bindinput="bindName" placeholder-style="color:#ccc;" placeholder="请输入姓名，以便组织找到您" />
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="but-box">
+      <button bindtap="goGuide">保存</button>
+    </view>
+  </view>
+</view>

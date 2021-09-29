@@ -1,0 +1,202 @@
+/* pages/bindingInfo/bindingInfo.wxss */
+.logo-box{
+  height: 420rpx;
+  position: relative;
+}
+.logo-box > image{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.logo-box .cont{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  padding-top: 40rpx;
+}
+.logo-box .cont image{
+  width: 128rpx;
+  height: 128rpx;
+  margin-bottom: 40rpx;
+}
+.logo-box .cont .text{
+  font-size: 40rpx;
+  font-family: Noto Sans S Chinese;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+.info-box-middle {
+  background: white;
+  border-radius: 0rpx;
+  margin: -100rpx 24rpx 25rpx;
+  padding: 0 25rpx;
+  box-shadow: 0px 3rpx 27rpx 0px rgba(191, 192, 209, 0.55);
+  z-index: 2;
+  position: relative;
+  border-radius: 40rpx;
+}
+
+.info-box-middle .ico {
+  position: relative;
+}
+
+.info-box-middle .ico image {
+  width: 48rpx;
+  height: 48rpx;
+  object-fit: contain;
+  position: relative;
+}
+
+.info-box-middle .ico .title {
+  font-size: 30rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.info-box-middle .area-box .start-area {
+  position: relative;
+}
+
+.info-box-middle .area-box .start-area picker {
+  position: relative;
+  z-index: 9999;
+}
+
+.info-box-middle .area-box .area-text {
+  font-size: 30rpx;
+  color: #333;
+}
+
+.info-box-middle .tips {
+  font-size: 30rpx;
+  color: #ccc;
+  width: 100%;
+}
+
+.info-box-middle .inp-box .tips {
+  width: 100%;
+  height: 100%;
+}
+
+.info-box-middle .guide {
+  width: 28rpx;
+  height: 28rpx;
+  font-size: 30rpx;
+  color: #333333;
+  flex-shrink: 0;
+}
+
+.info-box-middle .guide image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.info-box-middle .guide .title {
+  font-size: 30rpx;
+  color: #333;
+}
+
+.info-box-middle .ico {
+  width: 120rpx;
+  text-align: left;
+  font-size: 0;
+  flex-shrink: 0;
+}
+
+.info-box-middle .area-box .start-area {
+  border-bottom: 1px solid #E6E6E6;
+}
+
+.info-box-middle .area-box .picker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.info-box-middle .area-box .picker .right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 116rpx;
+  padding-left: 45rpx;
+}
+
+.info-box-middle .area-box .end-area .picker .right {
+  border-bottom: none;
+}
+
+.info-box-middle .area-box .end-area {
+  border-bottom: 1px solid #E6E6E6;
+}
+
+.info-box-middle .inp-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #E6E6E6;
+}
+
+.info-box-middle .inp-box:last-child {
+  /* border-bottom: none; */
+}
+
+.info-box-middle .inp-box .right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 116rpx;
+  padding-left: 0rpx;
+}
+
+.info-box-middle .inp-box .right .guide {
+  width: auto;
+}
+
+.info-box-middle .inp-box .right input {
+  width: 100%;
+  color: #333;
+  height: 100%;
+}
+
+.info-box-middle .tit {
+  border-bottom: 1px solid #E6E6E6;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.info-box-middle .tit .text {
+  font-size: 30rpx;
+  font-family: Noto Sans S Chinese;
+  font-weight: 400;
+  color: #666666;
+}
+.info-box-middle .but-box{
+  padding: 60rpx 0 120rpx 0;
+}
+.info-box-middle .but-box button {
+  width: 610rpx;
+  height: 88rpx;
+  background: #3b7dff;
+  border-radius: 8rpx;
+  font-size: 34rpx;
+  color: white;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,58 @@
+/* pages/guide/guide.wxss */
+.logo-box{
+  /* height: 420rpx; */
+  position: relative;
+}
+.logo-box > image{
+  /* width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0; */
+}
+.logo-box .cont{
+  width: 100%;
+  /* height: 100%; */
+  /* position: absolute;
+  left: 0;
+  top: 0; */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  padding-top: 140rpx;
+}
+.logo-box .cont image{
+  width: 556rpx;
+  /* height: 802rpx; */
+  margin-bottom: 60rpx;
+}
+.logo-box .cont .title{
+  font-size: 40rpx;
+  font-family: Noto Sans S Chinese;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 40rpx;
+}
+.logo-box .cont .text{
+  font-size: 30rpx;
+  font-family: Noto Sans S Chinese;
+  font-weight: 400;
+  color: #999999;
+}
+.but-box{
+  margin-top: 80rpx;
+}
+.but-box button {
+  width: 610rpx!important;
+  height: 88rpx;
+  background: #3b7dff;
+  border-radius: 8rpx;
+  font-size: 34rpx;
+  color: white;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

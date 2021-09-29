@@ -1,0 +1,224 @@
+<view class="container">
+  <image src="/images/blueBack2.png" mode="heightFix"></image>
+  <view class="info-box-middle info-box-middle1">
+    <view class="tit">
+      <!-- <view class="img-box">
+        <image src="/images/yuyue22x.png"></image>
+      </view> -->
+      <view class="text">
+        {{detail.name}}
+      </view>
+    </view>
+    <view class="cont">
+      <view class="inp-box">
+        <view class="ico">
+          <view class="title">
+            容纳人数：
+          </view>
+        </view>
+        <view class="right">
+          <view class="tips">
+            <view class="input">{{detail.people_count}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="inp-box">
+        <view class="ico">
+          <view class="title">
+            会议设备：
+          </view>
+        </view>
+        <view class="right">
+          <view class="tips">
+            <view class="input">{{detail.device}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="remark-box" wx:if="{{detail.meet_order.audit_status=='审核失败'}}">
+    <view class="title">
+      不通过原因
+    </view>
+    <view class="text" style="color:#F56C6C;">
+      {{detail.meet_order.audit_reason}}
+    </view>
+  </view>
+  <view class="info-box-middle">
+    <view class="tit">
+      <view class="img-box">
+        <image src="/images/yuyue22x.png"></image>
+      </view>
+      <view class="text">
+        预约信息
+      </view>
+    </view>
+    <view class="cont">
+      <view class="inp-box">
+        <view class="ico">
+          <view class="title">
+            预约人：
+          </view>
+        </view>
+        <view class="right">
+          <view class="tips">
+            <input type="text" class="inputs" value="{{formData.name}}" bindinput="bindName"
+					placeholder-style="color:#ccc;" placeholder="请填写预约人姓名" />
+          </view>
+        </view>
+      </view>
+      <view class="inp-box">
+        <view class="ico">
+          <view class="title">
+            联系电话：
+          </view>
+        </view>
+        <view class="right">
+          <view class="tips">
+            <input type="digit" class="inputs" value="{{formData.phone}}" bindinput="bindPhone"
+					placeholder-style="color:#ccc;" placeholder="请填写联系电话" />
+          </view>
+        </view>
+      </view>
+      <view class="inp-box">
+        <view class="ico">
+          <view class="title">
+            预约日期：
+          </view>
+        </view>
+        <view class="right">
+          <view class="tips">
+            <view class="input">{{formData.date}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="inp-box">
+        <view class="ico">
+          <view class="title">
+            预约时段：
+          </view>
+        </view>
+        <view class="right tipss">
+          <view class="tips">
+            <view class="input" bindtap="showDetail">
+              <view wx:if="{{timeText.length>0}}" class="in-b" wx:for="{{timeText}}" wx:key="value" wx:for-item="item" wx:for-index="index">
+                 {{item}} 、
+              </view>
+              <view style="color: #d6d2d2;" wx:if="{{timeText.length==0}}">
+                请选择预约时段
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="inp-box downLoad-box">
+        <view class="ico">
+          <view class="title">
+            其他附件：
+          </view>
+        </view>
+        <view class="right tipss">
+          <view class="tips">
+            <view class="fujian"  wx:if="{{formData.extra_file==''}}">
+              请上传附件
+            </view>
+            <view class="fujain2" wx:if="{{formData.extra_file!=''}}">
+              {{extra_file_name}}
+            </view>
+            <view class="opload" bindtap="goFiles" wx:if="{{formData.extra_file==''}}">
+              <image src="/images/shangchuan.png" mode="widthFix"></image>
+            </view>
+            <view class="opload" bindtap="deleteFiles" wx:if="{{formData.extra_file!=''}}">
+              <image src="/images/guanbi2.png"  mode="widthFix"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="remark-box">
+    <view class="title">
+      水牌备注 <view class="tips1">（非必填）</view>
+    </view>
+    <textarea bindinput="bindBrandNote" name="" id="" cols="30" rows="10" placeholder="请填写备注内容">
+      
+    </textarea>
+    <!-- <view class="text">
+      需用落地水牌写明：欢迎北京市检查小组莅临我 市进行指导！
+    </view> -->
+  </view>
+  <view class="remark-box">
+    <view class="title">
+      预约备注 <view class="tips1">（非必填）</view>
+    </view>
+    <textarea name="" bindinput="bindReserveNote" id="" cols="30" rows="10" placeholder="请填写备注内容">
+      
+    </textarea>
+  </view>
+  <!-- <view class="liucheng-box">
+    <view class="title">
+      流程
+    </view>
+    <view class="liuc">
+      <view class="list">
+        <view class="but active">
+        </view>
+        <view class="text">
+          <view class="sp1">
+            <view class="one">发起申请</view>
+            <view class="two">2021.09.08 18：22</view>
+          </view>
+          <view class="sp2">
+            李建明
+          </view>
+        </view>
+      </view>
+      <view class="list">
+        <view class="but">
+        </view>
+        <view class="text">
+          <view class="sp1">
+            <view class="one">发起申请</view>
+            <view class="two wait">待审批</view>
+          </view>
+          <view class="sp2"></view>
+        </view>
+      </view>
+    </view>
+  </view> -->
+  <!-- wx:if="{{detail.meet_order.audit_status=='审核中'}}" -->
+  <view class="operate-box">
+    <button class="audit" bindtap="auditTure">提交预约</button>
+  </view>
+
+  <view class="model" style="top:{{detailTop}}%">
+    <view class="content">
+      <view class="img-box" bindtap="hideDetail">
+        <image src="/images/guanbi.png"></image>
+      </view>
+      <view class="title">
+        时段选择
+      </view>
+      <view class="cont">
+        <view class="way-box">
+          <view class="way">
+            <checkbox-group bindchange="checkboxChange">
+              <label class="" wx:for="{{detail.time_list}}" wx:for-item="item" wx:if="{{item.use_flag==false}}" wx:for-index="index" wx:key="index">
+                <view class="info">
+                  <view class="name">{{item.time}}</view>
+                  <view class="tips">{{item.tips}}</view>
+                </view>
+                <view class="select">
+                  <checkbox color="#3377FF" value="{{item.time_id}}" checked="" />
+                </view>
+              </label>
+            </checkbox-group>
+          </view>
+        </view>
+      </view>
+      <view class="but-box" bindtap="hideDetail">
+        <button>确定</button>
+      </view>
+    </view>
+  </view>
+</view>

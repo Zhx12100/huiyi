@@ -1,0 +1,53 @@
+<!--index.wxml-->
+<calendar bind:change="dateChange" spot="{{spot}}" defaultTime="{{defaultTime}}"></calendar>
+<view class="inp-box">
+  <view class="input-box">
+    <view class="img-box">
+      <image src="/images/sousuo.png"></image>
+    </view>
+    <input type="text" bindconfirm="onConfirms" bindinput="bindSearch" placeholder="输入会议室名称进行搜索" placeholder-style="color:#B3B3B3"></input>
+  </view>
+</view>
+<scroll-view scroll-y="true" class="swiper-box"           bindscrolltolower="scrollHandler" 
+  style="height:calc(100vh - {{winHeight}}rpx)"
+  bindrefresherrefresh="onRefresh" refresher-triggered="{{triggered}}" refresher-enabled="true"
+>
+  <view class="list" wx:for="{{list}}" wx:key="value" wx:for-item="item" wx:for-index="index">
+    <view bindtap="goAddEdit" data-type="1" data-id="{{item.meet_id}}">
+      <view class="tit">
+        <view class="no">
+          <!-- <view class="img-box">
+            <image mode="widthFix" src="/images/huiyi.png"></image>
+          </view> -->
+          <view class="text1">
+            {{item.name}}
+          </view>
+        </view>
+        <view class="status">
+          <button class="{{item.status?'ytg':'ywc'}}">{{item.status?'启用中':'已停用'}}</button>
+          <view class="img-box">
+            <image mode="widthFix" src="/images/jiantou.png"></image>
+          </view>
+        </view>
+      </view>
+      <view class="time">
+        <view class="text">
+          <image mode="widthFix" src="/images/renshu.png"></image>
+          容纳人数: {{item.people_count}}
+        </view>
+        <view class="text">
+          <image mode="widthFix" src="/images/shebeiguanli.png"></image>
+          会议设备: {{item.device}}
+        </view>
+      </view> 
+    </view>
+  </view>
+  <view class="weui-loadmore" wx:if="{{isHideLoadMore}}">
+    <image src="/images/loading.gif" class="weui-loading"></image>
+    <view class="weui-loadmore__tips">正在加载</view>
+  </view>
+  <view class="weui-loadmore" wx:if="{{!isHideLoadMore}}">
+    <!-- <image src="/images/loading.gif" class="weui-loading"></image> -->
+    <view class="weui-loadmore__tips">暂无更多</view>
+  </view>
+</scroll-view>

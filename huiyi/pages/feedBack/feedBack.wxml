@@ -1,0 +1,41 @@
+<view class="info-box">
+	<view class="inp-box tbtb">
+		<view class="ico">
+			<view class="title">
+				反馈内容
+			</view>
+		</view>
+		<view class="right">
+			<textarea name="" placeholder="请详细描述您的问题（不超过300字）" bindinput="bindNote" id="" cols="30" value="{{formData.note}}"
+				rows="10">
+    	</textarea>
+		</view>
+	</view>
+	<view class="add-image">
+		<view class="img-box list" wx:for="{{preview}}" wx:key="value" 	wx:for-item="item" wx:for-index="index">
+			<image class="zhutu" bindtap="goPreview" data-src="{{item}}" mode="scaleToFill" src="{{item}}"></image>
+			<image class="del" bindtap="delImg" data-index="{{index}}" mode="widthFix" src="/images/del.png"></image>
+		</view>
+		<view class="adds list" bindtap="addImage">
+			<image src="/images/addImage.png"></image>
+		</view>
+		
+	</view>
+	<view class="inp-box tops">
+		<view class="ico">
+			<view class="title">
+				联系方式
+			</view>
+		</view>
+		<view class="right">
+			<view class="tips">
+				<input type="digit" class="inputs" value="{{formData.phone}}" bindinput="bindPhone"
+					placeholder-style="color:#ccc;" placeholder="请留下您的手机号，方便我们联系您" />
+			</view>
+		</view>
+	</view>
+	
+</view>
+<view class="operate-box">
+	<button class="audit" bindtap="goSubmit">提交</button>
+</view>

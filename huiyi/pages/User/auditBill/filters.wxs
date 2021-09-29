@@ -1,0 +1,40 @@
+var filters = {
+  getSwitchStatus: function (status) {
+    console.log(status)
+    switch (status) {
+      case '已关闭':
+        return 'ygb';
+      case '审核通过':
+        return 'ytg';
+      case '已完成':
+        return 'ywc';
+      case '不通过':
+        return 'btg';
+      case '审核中':
+        return 'dsp';
+    }
+  },
+  getSwitchStatusTips: function (status) {
+    console.log(status)
+    switch (status) {
+      case 0:
+        return '订单已提交，请尽快完成支付！';
+      case 1:
+        return '请等待安排司机！';
+      case 2:
+        return '货物运输中，请耐心等待！';
+      case 3:
+        return '订单已完成，有问题请联系客服！';
+      case 4:
+        return '订单已取消，请重新下单';
+      case 5:
+        return '订单可申请开票';
+      case 6:
+        return '该订单已开票';
+    }
+  }
+}
+module.exports = {
+  getSwitchStatus: filters.getSwitchStatus,
+  getSwitchStatusTips: filters.getSwitchStatusTips,
+}

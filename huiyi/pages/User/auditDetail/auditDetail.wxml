@@ -1,0 +1,195 @@
+<view class="container">
+  <image src="/images/blueBack2.png" mode="heightFix"></image>
+  <view class="info-box-middle">
+    <view class="tit">
+      <view class="img-box">
+        <image src="/images/yuyue22x.png"></image>
+      </view>
+      <view class="text">
+        预约信息：
+      </view>
+    </view>
+    <view class="cont">
+      <view class="inp-box">
+        <view class="ico">
+          <view class="title">
+            预约人：
+          </view>
+        </view>
+        <view class="right">
+          <view class="tips">
+            <view class="input">{{detail.meet_order.name}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="inp-box">
+        <view class="ico">
+          <view class="title">
+            预约电话：
+          </view>
+        </view>
+        <view class="right">
+          <view class="tips">
+            <view class="input">{{detail.meet_order.phone}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="inp-box">
+        <view class="ico">
+          <view class="title">
+            预约会议室：
+          </view>
+        </view>
+        <view class="right">
+          <view class="tips">
+            <view class="input">{{detail.meet_room.name}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="inp-box">
+        <view class="ico">
+          <view class="title">
+            预约日期：
+          </view>
+        </view>
+        <view class="right">
+          <view class="tips">
+            <view class="input">{{detail.meet_order.date}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="inp-box">
+        <view class="ico">
+          <view class="title">
+            预约时段：
+          </view>
+        </view>
+        <view class="right">
+          <view class="tips">
+            <view class="input">
+              <text wx:for="{{detail.meet_order.time_list}}" wx:key="index" wx:for-item="item"
+                wx:for-index="index">{{item.time}} / </text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="inp-box">
+        <view class="ico">
+          <view class="title">
+            其他附件：
+          </view>
+        </view>
+        <view class="right">
+          <view class="tips">
+            <view class="input down-blue" bindtap="downLoadFile">
+            <!-- {{detail.meet_order.extra_file}} -->
+            点击查看附件
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="status-box">
+      <image mode="widthFix" wx:if="{{detail.meet_order.audit_status=='不通过'}}" src="/images/butongguo.png"></image>
+      <image mode="widthFix" wx:if="{{detail.meet_order.audit_status=='审核通过'}}" src="/images/yitongguo.png"></image>
+      <image mode="widthFix" wx:if="{{detail.meet_order.audit_status=='已完成'}}" src="/images/yiwancheng.png"></image>
+      <image mode="widthFix" wx:if="{{detail.meet_order.audit_status=='已关闭'}}" src="/images/yiguanbi.png"></image>
+    </view>
+  </view>
+  <view class="remark-box" wx:if="{{detail.meet_order.audit_status=='不通过'}}">
+    <view class="title">
+      不通过原因
+    </view>
+    <view class="text" style="color:#F56C6C;">
+      {{detail.meet_order.audit_reason}}
+    </view>
+  </view>
+  <view class="remark-box">
+    <view class="title">
+      水牌备注
+    </view>
+    <view class="text">
+      {{detail.meet_order.brand_note||'暂无备注'}}
+    </view>
+  </view>
+  <view class="remark-box">
+    <view class="title">
+      预约备注
+    </view>
+    <view class="text">
+      {{detail.meet_order.brand_note||'暂无备注'}}
+    </view>
+  </view>
+  <!-- <view class="liucheng-box">
+    <view class="title">
+      流程
+    </view>
+    <view class="liuc">
+      <view class="list">
+        <view class="but active">
+        </view>
+        <view class="text">
+          <view class="sp1">
+            <view class="one">发起申请</view>
+            <view class="two">2021.09.08 18：22</view>
+          </view>
+          <view class="sp2">
+            李建明
+          </view>
+        </view>
+      </view>
+      <view class="list">
+        <view class="but">
+        </view>
+        <view class="text">
+          <view class="sp1">
+            <view class="one">发起申请</view>
+            <view class="two wait">待审批</view>
+          </view>
+          <view class="sp2"></view>
+        </view>
+      </view>
+    </view>
+  </view> -->
+  <!-- wx:if="{{detail.meet_order.audit_status=='审核中'}}" -->
+  <view class="operate-box" wx:if="{{detail.meet_order.audit_status=='审核中'}}">
+    <button class="audit-none" bindtap="auditFalse">审批不通过</button>
+    <button class="audit" bindtap="auditTure">审批通过</button>
+  </view>
+
+  <view class="model" style="top:{{detailTop}}%">
+    <view class="content">
+      <view class="img-box" bindtap="hideDetail">
+        <image src="/images/guanbi.png"></image>
+      </view>
+      <view class="title">
+        不通过原因
+      </view>
+      <view class="cont">
+        <view class="way-box">
+          <view class="way">
+            <radio-group bindchange="radioChange">
+              <label class="" wx:for="{{items}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+                <view class="info">
+                  <view class="name">{{item.name}}</view>
+                  <view class="tips">{{item.tips}}</view>
+                </view>
+                <view class="select">
+                  <radio color="#3377FF" value="{{item.value}}" checked="" />
+                </view>
+              </label>
+            </radio-group>
+          </view>
+          <textarea name="" placeholder="如有其他原因可在此填写" bindinput="bindReason" wx:if="{{audit_index==2}}" id="" cols="30" rows="10">
+          </textarea>
+        </view>
+      </view>
+      <view class="but-box" bindtap="refuseAudit">
+        <button>确定</button>
+      </view>
+    </view>
+  </view>
+  <view class="operate-box" wx:if="{{detail.meet_order.audit_status=='审核中'||detail.meet_order.audit_statu=='审核通过'}}">
+    <button class="audit-none" bindtap="cancelOrder">关闭预约</button>
+  </view>
+</view>

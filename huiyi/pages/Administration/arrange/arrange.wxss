@@ -1,0 +1,120 @@
+/* pages/Administration/arrange/arrange.wxss */
+page{
+    height: 100%;
+}
+.huiyi-box{
+    margin: 0rpx 24rpx 0;
+    padding-bottom: 100rpx;
+}
+.huiyi-box > .list{
+    padding: 0 30rpx;
+    margin-top: 30rpx;
+    background: white;
+    border-radius: 20rpx;
+}
+.huiyi-box .list .title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 106rpx;
+}
+.huiyi-box .list .title .left{
+    display: flex;
+    align-items: center;
+}
+.huiyi-box .list .title .left .img-box{
+    width: 36rpx;
+    height: 36rpx;
+    margin-right: 10rpx;
+}
+.huiyi-box .list .title .left .img-box image{
+    width: 100%;
+}
+.huiyi-box .list .title .left .text1{
+    font-size: 32rpx;
+    font-family: Noto Sans S Chinese;
+    font-weight: bold;
+    color: #333333;
+    line-height: 36rpx;
+}
+.huiyi-box .list .title .right{
+    font-size: 28rpx;
+    font-family: Noto Sans S Chinese;
+    font-weight: 400;
+    color: #999999;
+    line-height: 36rpx;
+}
+.huiyi-box .list .title .right .active{
+    color: #04CF66;
+}
+.huiyi-box .list .table-header{
+    background: #F2F6FC;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    height: 80rpx;
+    border-radius:10rpx ;
+    font-size: 30rpx;
+    font-family: Noto Sans S Chinese;
+    font-weight: 500;
+    color: #878D99;
+    line-height: 36rpx;
+}
+.huiyi-box .list .table-header > view{
+    padding-left: 30rpx;
+}
+.huiyi-box .list .table-header .left{
+    width: 40%;
+}
+.huiyi-box .list .table-header .right{
+    width: 60%;
+}
+.huiyi-box .list .table-body .list{
+    /* background: #F2F6FC; */
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    border-radius:10rpx ;
+    font-size: 30rpx;
+    font-family: Noto Sans S Chinese;
+    font-weight: 500;
+    color: #333;
+    line-height: 38rpx;
+    padding: 24rpx 0;
+    border-bottom: 1rpx solid #E6E6E6;
+}
+.huiyi-box .list .table-body .list > view{
+    padding-left: 30rpx;
+}
+.huiyi-box .list .table-body .list .left{
+    width: 40%;
+}
+.huiyi-box .list .table-body .list .right{
+    width: 60%;
+}
+.huiyi-box .list .table-body .list .right > view{
+    margin-bottom: 15rpx;
+}
+.huiyi-box .list .table-body .list .right > view:last-child{
+    margin-bottom: 0;
+}
+.huiyi-box .list .showMore{
+    font-size: 30rpx;
+    font-family: Noto Sans S Chinese;
+    font-weight: 400;
+    color: #3377FF;
+    height: 100rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.huiyi-box .list .showMoreNone{
+    font-size: 30rpx;
+    font-family: Noto Sans S Chinese;
+    font-weight: 400;
+    color: #666;
+    height: 100rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

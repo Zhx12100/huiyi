@@ -1,0 +1,85 @@
+<view class="info-box">
+	<view class="inp-box">
+		<view class="ico">
+			<view class="title">
+				会议室名称
+			</view>
+		</view>
+		<view class="right">
+			<view class="tips">
+				<input type="text" class="inputs" value="{{formData.name}}" bindinput="bindName" placeholder-style="color:#ccc;"
+					placeholder="请填写会议室名称" />
+			</view>
+		</view>
+	</view>
+	<view class="inp-box">
+		<view class="ico">
+			<view class="title">
+				容纳人数
+			</view>
+		</view>
+		<view class="right">
+			<view class="tips">
+				<input type="digit" class="inputs" value="{{formData.people_count}}" bindinput="bindPeople"
+					placeholder-style="color:#ccc;" placeholder="请填写可容纳人数" />
+			</view>
+		</view>
+	</view>
+	<view class="inp-box">
+		<view class="ico">
+			<view class="title">
+				开放时间
+			</view>
+		</view>
+		<view class="right">
+			<view class="tips switch-box">
+				<picker mode="time" value="{{formData.start_time}}" start="00:00" end="23:59" bindchange="bindStartTimeChange">
+					<view class="picker {{formData.start_time?'bld':''}}">
+						{{formData.start_time==''?'开始时间':formData.start_time}}
+					</view>
+				</picker>
+				—
+				<picker mode="time" value="{{formData.end_time}}" start="00:00" end="23:59" bindchange="bindEndTimeChange">
+					<view class="picker {{formData.end_time?'bld':''}}">
+						{{formData.end_time==''?'结束时间':formData.end_time}}
+					</view>
+				</picker>
+			</view>
+		</view>
+	</view>
+	<view class="inp-box">
+		<view class="ico">
+			<view class="title">
+				是否启用
+			</view>
+		</view>
+		<view class="right">
+			<view class="tips switch-box">
+				<switch checked="{{formData.status}}" bindchange="changeStatus" />
+			</view>
+		</view>
+	</view>
+	<view class="inp-box tbtb">
+		<view class="ico">
+			<view class="title">
+				会议设备
+			</view>
+		</view>
+		<view class="right">
+			<textarea name="" placeholder="请填写会议设备" bindinput="bindDevice" id="" cols="30" value="{{formData.device}}"
+				rows="10">
+    	</textarea>
+		</view>
+		<view class="add-tab">
+			<view class="left">
+				快速添加
+			</view>
+			<view class="tab" wx:for="{{items}}" wx:key="value" 	wx:for-item="item" wx:for-index="index" bindtap="addTab" data-tab="{{item}}">
+				{{item}}
+			</view>
+		</view>
+	</view>
+</view>
+<view class="operate-box">
+	<button class="audit" bindtap="goSubmit">保存</button>
+</view>

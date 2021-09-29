@@ -1,0 +1,231 @@
+/* pages/placeOrder/placeOrder.wxss */
+page {
+  background: #F5F5F5;
+  /* height: 100%; */
+}
+
+.container {
+  /* min-height: 100%; */
+  /* padding-top: 26rpx; */
+  /* padding-bottom: 120rpx; */
+  /* overflow: hidden; */
+}
+
+.banner-box{
+  width: 100%;
+  font-size: 20rpx;
+  position: relative;
+  padding: 40rpx 0;
+}
+.banner-box image{
+  width: 100%!important;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.fu-margin{
+  /* margin-top:-144rpx */
+  margin-top: 24rpx;
+}
+
+.title-box {
+  margin: 0rpx 24rpx;
+  /* margin-top: 24rpx; */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /* background: white; */
+  border-radius: 20rpx;
+  padding: 35rpx 0rpx;
+  /* box-shadow: 0px 2px 32px 0px rgba(215, 210, 195, 0.44); */
+  position: relative;
+  z-index: 8;
+}
+
+.title-box .img-box {
+  width: 90rpx;
+  height: 90rpx;
+  font-size: 0;
+  flex-shrink: 0;
+  margin-right: 20rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.title-box .img-box image {
+  width: 100%;
+  height: 100%;
+}
+
+.title-box .info .top {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 20rpx;
+  line-height: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.title-box .info .bottom {
+  font-size: 26rpx;
+  font-weight: 400;
+  color: white;
+  line-height: 1;
+}
+.title-box .info .mobiles{
+  font-size: 28rpx;
+  font-family: Noto Sans S Chinese;
+  font-weight: 400;
+  color: #FFFFFF;
+  margin-left: 20rpx;
+}
+
+.ban{
+  height:35rpx;
+  border-bottom: 20rpx solid #F8F8F8;
+  z-index: 7;
+}
+
+.info-box{
+  background: white;
+  border-radius: 0rpx;
+  margin: 0rpx 0rpx 25rpx;
+  padding: 0 25rpx;
+  /* box-shadow: 0px 2rpx 10rpx 0rpx rgba(217, 215, 209, 0.5); */
+  border-radius: 20rpx;
+  z-index: 6;
+}
+.info-box .ico{
+  position: relative;
+  display: flex;
+}
+.info-box .ico .img-box{
+  width: 42rpx;
+  height: 42rpx;
+  object-fit: contain;
+  position: relative;
+  margin-right: 10rpx;
+}
+.info-box .ico .img-box image{
+  width: 100%;
+  height: 100%;
+}
+.info-box .ico .title{
+  font-size: 30rpx;
+  color: #333;
+}
+.info-box .area-box .start-area{
+  position: relative;
+}
+.info-box .area-box .start-area picker{
+  position: relative;
+  z-index: 9999;
+}
+.info-box .area-box .area-text{
+  font-size: 30rpx;
+  color: #333;
+}
+.info-box .tips{
+  font-size: 30rpx;
+  color: #ccc;
+}
+.info-box .inp-box .tips{
+  width: 100%;
+  text-align: right;
+}
+.info-box .guide{
+  width: 28rpx;
+  height: 28rpx;
+  font-size: 0;
+  flex-shrink: 0;
+}
+.info-box .guide image{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.info-box .guide .title{
+  font-size: 30rpx;
+  color: #333;
+}
+.info-box .ico{
+  width: 240rpx;
+  text-align: left;
+  font-size: 0;
+  flex-shrink: 0;
+}
+.info-box .area-box .start-area{
+  border-bottom: 1px solid #E6E6E6;
+}
+.info-box .area-box .picker{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.info-box .area-box .picker .right{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 116rpx;
+  padding-left: 45rpx;
+}
+.info-box .area-box .end-area .picker .right{
+  border-bottom: none;
+}
+.info-box .area-box .end-area{
+  border-bottom: 1px solid #E6E6E6;
+}
+.info-box .inp-box{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #E6E6E6;
+}
+.info-box .inp-box:last-child{
+    /* border-bottom: none; */
+}
+.info-box .inp-box .right{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: 116rpx;
+  padding-left: 45rpx;
+}
+.info-box .inp-box .right .guide{
+  /* width: auto; */
+}
+.info-box .inp-box .right input{
+  width: 100%;
+  color: #333;
+  text-align: right;
+}
+
+.inp-box .radio-group{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.inp-box label{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* height: 116rpx; */
+  /* border-bottom: 1px solid #E6E6E6; */
+}
+.inp-box label .name{
+  font-size: 30rpx;
+  color: #333;
+  display: inline-block;
+}
+.inp-box label .tips{
+  font-size: 26rpx;
+  color: #666;
+  display: inline-block;
+}
+

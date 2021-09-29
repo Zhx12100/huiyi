@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "administration_arrange": "/pages/Administration/arrange/arrange",
+    "administration_auditBill": "/pages/Administration/auditBill/auditBill",
+    "administration_roomManagement": "/pages/Administration/roomManagement/roomManagement",
+    "my": "/pages/my/my",
+    "user_arrange": "/pages/User/arrange/arrange",
+    "user_auditBill": "/pages/User/auditBill/auditBill"
+  },
+  "navigationBarTitleText": "",
+  "navigationBarBackgroundColor": "#3b7dff"
+}

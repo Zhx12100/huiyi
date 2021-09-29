@@ -1,0 +1,10 @@
+<view wx:if="{{isHide}}">
+  <view>
+    <view class='header'>
+      <icon class="icon-box-img" type="warn" size="93"></icon>
+    </view>
+    <view class='content'>
+      <text>该账号存在异常，请联系【{{phoneNumber}}】</text>
+    </view>
+  </view>
+</view>
