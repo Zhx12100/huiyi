@@ -22,7 +22,7 @@ Page({
       reserve_note: '',
       extra_file: '',
     },
-    extra_file_name:'',
+    extra_file_name: '',
     id: '',
   },
 
@@ -226,12 +226,43 @@ Page({
             icon: 'success',
             duration: 1000
           })
-          setTimeout(() => {
-            // that.getDetail()
-            wx.navigateBack({ //返回
-              delta: 1
-            })
-          }, 1000)
+          wx.requestSubscribeMessage({
+            tmplIds: ['uOj5pyHNBNAce4bvnAQgCs4nPQ_b-VOxwe8imH7-sSc', '7n5pJBcyrGtbNNSB4ouh8Xf58BJFXXFjwYNXRQma29U'],
+            success(dingy) {
+              console.log('成功订阅', dingy)
+              wx.showToast({
+                title: '成功订阅',
+                icon: 'success',
+                duration: 2000
+              })
+              setTimeout(() => {
+                // that.getDetail()
+                wx.navigateBack({ //返回
+                  delta: 1
+                })
+              }, 1000)
+            },
+            fail(res) { // 接口调用失败的回调函数
+              if (res.errCode === 20004) {
+                wx.showModal({
+                  title: "温馨提示",
+                  content: "您已拒绝授权，将无法在微信中收到回复通知！",
+                  showCancel: false,
+                  success: res => {
+                    if (res.confirm) {
+                      setTimeout(() => {
+                        // that.getDetail()
+                        wx.navigateBack({ //返回
+                          delta: 1
+                        })
+                      }, 1000)
+                    }
+                  }
+                });
+              }
+            }
+          })
+
 
         } else {
           wx.showToast({
@@ -254,7 +285,7 @@ Page({
       type: 'all', // 可以指定是原图还是压缩图，默认二者都有  
       success: function (res) {
         var tempFilePaths = res.tempFiles
-        if(tempFilePaths.length==0){
+        if (tempFilePaths.length == 0) {
           wx.showModal({
             title: '错误提示',
             content: '文件损坏或过期,请重新选择',
@@ -264,6 +295,17 @@ Page({
           return false
         }
         console.log('选择的文件', res)
+        let types = ['doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'pdf', 'txt', 'jpg', 'png', 'gif', 'mp4']
+        const fileType = types.find(i => tempFilePaths[0].path.endsWith(i))
+        if (types.indexOf(fileType) == -1) {
+          wx.showModal({
+            title: '错误提示',
+            content: '文件类型不符合要求，请重新上传',
+            showCancel: false,
+            success: function (res) {}
+          })
+          return false
+        }
         wx.showToast({
           title: '正在上传...',
           icon: 'loading',
@@ -289,7 +331,7 @@ Page({
             wx.hideToast();
             that.setData({
               ['formData.extra_file']: data.data.file_path,
-              extra_file_name:tempFilePaths[0].name
+              extra_file_name: tempFilePaths[0].name
             })
           },
           fail: function (res) {
@@ -307,11 +349,11 @@ Page({
   },
 
   //删除文件
-  deleteFiles(){
+  deleteFiles() {
     let that = this
     that.setData({
       ['formData.extra_file']: '',
-      extra_file_name:''
+      extra_file_name: ''
     })
   },
 
@@ -347,7 +389,7 @@ Page({
             wx.hideToast();
           },
           fail: function (error) {
-            console.log('error',error)
+            console.log('error', error)
           },
         })
       }

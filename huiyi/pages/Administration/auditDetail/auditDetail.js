@@ -8,6 +8,7 @@ Page({
   data: {
     baseUrl: app.globalData.baseUrl,
     id: '',
+    chooesVideo:'',    //上传视频地址
     detail: {},
     loadingHidden: true,
     detailTop: 100,
@@ -32,7 +33,9 @@ Page({
       }
     ],
     audit_index:'',
-    audit_reason:''
+    audit_reason:'',
+    previewImage:'',
+    previewList:'',
   },
 
   /**
@@ -116,7 +119,7 @@ Page({
             },
             data: {
               order_id: that.data.id,
-              audit_flag: true,
+              audit_flag: false,
               audit_reason: that.data.audit_reason
             },
             success: function (res) {
@@ -230,21 +233,48 @@ Page({
       duration: 10000
     });
     console.log('downloadFile', that.data.baseUrl + that.data.detail.meet_order.extra_file)
-    wx.downloadFile({
-      url: that.data.baseUrl + that.data.detail.meet_order.extra_file,
-      success: function (res) {
-        var filePath = res.tempFilePath;
-        console.log(res)
-        //页面显示加载动画
-        wx.openDocument({
-          filePath: filePath,
-          success: function (res) {
-            console.log('打开文档成功')
-            wx.hideToast();
-          }
-        })
-      }
-    })
+    let fileUrl = that.data.baseUrl + that.data.detail.meet_order.extra_file
+    const types = ['doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'pdf','txt','jpg','png','gif','mp4']//支持的文件格式
+    const fileType = types.find(i => fileUrl.endsWith(i))
+    // 如果文件类型是图片 跳转webview
+    if (fileType==='jpg' || fileType=='png'||fileType=='gif') {
+      wx.hideToast();
+      that.setData({
+        previewImage : fileUrl ,
+        previewList : [fileUrl] ,
+      })
+      wx.previewImage({
+		  	current: that.data.previewImage, // 当前显示图片的http链接
+		  	urls: that.data.previewList // 需要预览的图片http链接列表
+      })
+    }else if(fileType==='mp4'){
+      wx.hideToast();
+      // that.setData({
+      //   chooesVideo : fileUrl 
+      // })
+      console.log([{url:fileUrl,type:'video'}])
+      wx.previewMedia({
+        current: 0,
+        sources: [{url:fileUrl,type:'video'}],
+        url:{url:fileUrl,type:'video'}
+      }, true)
+    }else{
+      wx.downloadFile({
+        url: that.data.baseUrl + that.data.detail.meet_order.extra_file,
+        success: function (res) {
+          var filePath = res.tempFilePath;
+          console.log(res)
+          //页面显示加载动画
+          wx.openDocument({
+            filePath: filePath,
+            success: function (res) {
+              console.log('打开文档成功')
+              wx.hideToast();
+            }
+          })
+        }
+      })
+    }
   },
 
 
@@ -262,12 +292,25 @@ Page({
     })
   },
 
+  bindVideoScreenChange: function (e) {
+    var status = e.detail.fullScreen;
+    var play = {
+      playVideo: false
+    }
+    if (status) {
+      play.playVideo = true;
+    } else {
+      this.videoContext.pause();
+    }
+    this.setData(play);
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-
-  },
+  onReady: function (res) {
+    this.videoContext = wx.createVideoContext('prew_video');
+  },/**
 
   /**
    * 生命周期函数--监听页面显示

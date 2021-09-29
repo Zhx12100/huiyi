@@ -32,7 +32,9 @@ Page({
       }
     ],
     audit_index:'',
-    audit_reason:''
+    audit_reason:'',
+    previewImage:'',
+    previewList:'',
   },
 
   /**
@@ -162,35 +164,51 @@ Page({
     wx.showToast({
       title: '加载中',
       icon: 'loading',
-      duration: 2000000
+      duration: 10000
     });
     console.log('downloadFile', that.data.baseUrl + that.data.detail.meet_order.extra_file)
-    wx.downloadFile({
-      url: that.data.baseUrl + that.data.detail.meet_order.extra_file,
-      success: function (res) {
-        var filePath = res.tempFilePath;
-        console.log(res)
-        
-        var index1 = filePath.lastIndexOf(".");
-        var index2 = filePath.length;
-        var postf = filePath.substring(index1, index2);//后缀名
-        var postf1 = postf.replace(/\./g, '')
-        console.log('postf1',postf1)
-        //页面显示加载动画
-        wx.openDocument({
-          filePath: filePath,
-          fileType: postf1,
-          success: function (res) {
-            console.log('打开文档成功')
-            wx.hideToast();
-          },
-          fail: function (error) {
-            console.log('error',error)
-            wx.hideToast();
-          },
-        })
-      }
-    })
+    let fileUrl = that.data.baseUrl + that.data.detail.meet_order.extra_file
+    const types = ['doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'pdf','txt','jpg','png','gif','mp4']//支持的文件格式
+    const fileType = types.find(i => fileUrl.endsWith(i))
+    // 如果文件类型是图片 跳转webview
+    if (fileType==='jpg' || fileType=='png'||fileType=='gif') {
+      wx.hideToast();
+      that.setData({
+        previewImage : fileUrl ,
+        previewList : [fileUrl] ,
+      })
+      wx.previewImage({
+		  	current: that.data.previewImage, // 当前显示图片的http链接
+		  	urls: that.data.previewList // 需要预览的图片http链接列表
+      })
+    }else if(fileType==='mp4'){
+      wx.hideToast();
+      // that.setData({
+      //   chooesVideo : fileUrl 
+      // })
+      console.log([{url:fileUrl,type:'video'}])
+      wx.previewMedia({
+        current: 0,
+        sources: [{url:fileUrl,type:'video'}],
+        url:{url:fileUrl,type:'video'}
+      }, true)
+    }else{
+      wx.downloadFile({
+        url: that.data.baseUrl + that.data.detail.meet_order.extra_file,
+        success: function (res) {
+          var filePath = res.tempFilePath;
+          console.log(res)
+          //页面显示加载动画
+          wx.openDocument({
+            filePath: filePath,
+            success: function (res) {
+              console.log('打开文档成功')
+              wx.hideToast();
+            }
+          })
+        }
+      })
+    }
   },
 
 

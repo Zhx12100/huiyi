@@ -1,4 +1,5 @@
 <!--components/calendar/calendar.wxml-->
+<wxs module="filters" src="./filters.wxs"></wxs>
 <view class="calendar">
 	<view class="title flex">
 		<view class="flex">
@@ -30,7 +31,7 @@
 	<!-- 日历主体 -->
 	<view class="flex-start flex-wrap calendar-main" style="height:{{dateList.length/7*72}}rpx">
 		<view wx:for="{{dateList}}" wx:key="dateList" class="day">
-			<view class="bg {{(item.year === selectDay.year && item.month === selectDay.month) ? (item.day === selectDay.day?'select':''): 'other-month'}}" catchtap="selectChange" data-day="{{item.day}}" data-year="{{item.year}}" data-month="{{item.month}}" data-date-string="{{item.dateString}}">
+			<view class="bg {{filters.getCuo(item.dateString,todays.dateString)?'other-month':''}} {{(item.year === selectDay.year && item.month === selectDay.month) ? (item.day === selectDay.day?'select':''): 'other-month'}}" catchtap="selectChange" data-day="{{item.day}}" data-year="{{item.year}}" data-month="{{item.month}}" data-date-string="{{item.dateString}}" data-types="{{filters.getCuo(item.dateString,todays.dateString)?0:1}}">
 				{{item.day}}
 			</view>
 			<view class="spot" wx:if="{{item.spot}}"></view>

@@ -3,7 +3,8 @@
     <view class="cont">
       <image mode="widthFix" src="/images/pic.png"></image>
       <view class="title">欢迎来到会议室预订服务平台</view>
-      <view class="text">移动管理，提高效率</view>
+      <view class="text"  wx:if="{{type==1}}">移动管理，提高效率</view>
+      <view class="text" wx:else>一键预定，轻松搞定</view>
     </view>
     <view class="but-box" data-type="arrange" bindtap="goIndex" wx:if="{{type==1}}">
       <button>进入会议室管理中心</button>

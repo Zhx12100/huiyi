@@ -3,6 +3,11 @@ Component({
     /**
      * 组件的属性列表
      */
+    data:{
+      todays:{
+
+      }
+    },
     properties: {
       spot: {
         type: Array,
@@ -209,10 +214,14 @@ Component({
       },
       //一天被点击时
       selectChange(e) {
+        if(e.currentTarget.dataset.types==0){
+          return false
+        }
         const year = e.currentTarget.dataset.year
         const month = e.currentTarget.dataset.month
         const day = e.currentTarget.dataset.day
         const dateString = e.currentTarget.dataset.dateString
+        
         const selectDay = {
           year: year,
           month: month,
@@ -227,6 +236,12 @@ Component({
           })
           this.triggerEvent("change", this.data.selectDay)
         }
+      },
+      setTodays(dates){
+        let that = this
+        that.setData({
+          todays:dates
+        })
       }
     },
     lifetimes: {
@@ -238,6 +253,7 @@ Component({
           day: now.getDate(),
           dateString: this.formatTime(now, "Y/M/D")
         }
+        this.setTodays(selectDay)
         this.setMonth(selectDay.year, selectDay.month, selectDay.day)
       }
     },

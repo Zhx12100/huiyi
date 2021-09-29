@@ -408,7 +408,7 @@ page {
   /* display: flex;
   align-items: center; */
   transition: .5s;
-  z-index: 12345;
+  z-index: 9999999;
 }
 
 .model .content {
@@ -449,8 +449,11 @@ page {
 
 .model .content .cont {
   margin: 40rpx 30rpx 0;
-  height: 84%;
+  height: auto;
   overflow-y: scroll;
+  max-height: 700rpx;
+  overflow: scroll;
+  margin-bottom: 134rpx;
 }
 
 .model .content .cont .list {
@@ -501,7 +504,7 @@ page {
 .model .way-box{
   background: white;
   border-radius: 40rpx;
-  margin: 0 0rpx 108rpx;
+  /* margin: 0 0rpx 108rpx; */
   padding: 0 0rpx;
   /* box-shadow: 0px 2rpx 10rpx 0rpx rgba(217, 215, 209, 0.5); */
 }

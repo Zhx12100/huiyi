@@ -27,6 +27,9 @@ App({
             if (res.data.data.is_new == false) {//如果登陆过
               if (res.data.data.freeze_flag == true) {//如果该账号已被冻结  phone
                 that.globalData.phoneNumber = res.data.data.phone
+                wx.redirectTo({
+                  url: '/pages/status/status',
+                })
                 return false
               } else { //如果未冻结
                 

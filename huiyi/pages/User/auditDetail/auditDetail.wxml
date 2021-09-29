@@ -81,10 +81,11 @@
         </view>
         <view class="right">
           <view class="tips">
-            <view class="input down-blue" bindtap="downLoadFile">
+            <view class="input down-blue" bindtap="downLoadFile" wx:if="{{detail.meet_order.extra_file!=''}}">
             <!-- {{detail.meet_order.extra_file}} -->
             点击查看附件
             </view>
+            <view wx:else>暂无附件</view>
           </view>
         </view>
       </view>

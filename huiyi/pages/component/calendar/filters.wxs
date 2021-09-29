@@ -1,0 +1,12 @@
+var filters = {
+  getCuo: function (times,today) {
+    if(getDate(times).getTime()<getDate(today).getTime()){
+      return true
+    }else{
+      return false
+    }
+  }
+}
+module.exports = {
+  getCuo: filters.getCuo
+}
