@@ -114,6 +114,9 @@ export default {
         console.log("获取账户列表", response);
         that.listLoading = false;
         that.list = response.data.result;
+        that.list.forEach((v,i) => {
+          v.freeze_flag = !v.freeze_flag
+        })
         that.total = response.data.data_sum;
       });
     },
@@ -143,7 +146,7 @@ export default {
     changeFreeze(val, id) {
       var that = this;
       console.log(val, id);
-      setFreeze({ user_id: id, freeze_flag: val }).then((response) => {});
+      setFreeze({ user_id: id, freeze_flag: !val }).then((response) => {});
     },
     deleteItem(id) {
       var that = this;

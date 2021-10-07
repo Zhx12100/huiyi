@@ -44,20 +44,20 @@ export const constantRouterMap = [
     hidden: true
   },
   // { path: '*', redirect: '/404', hidden: true }
-  {
-    path: '/',
-    component: Layout,
-    redirect: '/dashboard',
-    meta: {  role: ['A', 'super_editor'] },
-    children: [
-      {
-        path: 'dashboard',
-        name: 'Dashboard',
-        component: () => import('@/views/dashboard/index'),
-        meta: { title: '用户列表', icon: 'el-icon-user'},
-      }
-    ]
-  },
+  // {
+  //   path: '/',
+  //   component: Layout,
+  //   redirect: '/dashboard',
+  //   meta: {  role: ['A', 'super_editor'] },
+  //   children: [
+  //     {
+  //       path: 'dashboard',
+  //       name: 'Dashboard',
+  //       component: () => import('@/views/dashboard/index'),
+  //       meta: { title: '用户列表', icon: 'el-icon-user'},
+  //     }
+  //   ]
+  // },
 ]
 
 export const asyncRouterMap = [

@@ -73,6 +73,8 @@ router.beforeEach(async (to, from, next) => {
           // router.resetRouter()
           console.log(store.getters.addRouters)
           router.options.routes = store.getters.addRouters
+          // router.options.routes = router.options.routes.concat(store.getters.addRouters)
+          router.resetRouter()
           router.addRoutes(store.getters.addRouters) // 动态添加可访问路由表
           next({ ...to, replace: true }) // hack方法 确保addRoutes已完成 ,set the replace: true so the navigation will not leave a history record
         })

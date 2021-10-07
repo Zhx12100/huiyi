@@ -78,7 +78,7 @@
         </el-form-item>
         <el-form-item label="反馈图片：">
           <div class="img-box" v-for="(item,index) in detail.pic_list" :key="index">
-            <img :src="baseURL+item" alt="">
+            <img :src="baseURL+item" @click="getImage(baseURL + item)" alt="">
           </div>
         </el-form-item>
         <el-form-item label="反馈备注：">
@@ -88,6 +88,17 @@
           {{ detail.create_time }}
         </el-form-item>
       </el-form>
+    </el-dialog>
+    <el-dialog
+      title=""
+      :visible.sync="imageDialogVisible"
+      width="600px"
+      :before-close="handleClose"
+    >
+      <el-image
+      style="width: 100%; height: auto"
+      :src="imageUrl"
+      :fit="'contain'"></el-image>
     </el-dialog>
   </div>
 </template>
@@ -105,6 +116,8 @@ export default {
       list: null,
       listLoading: true,
       baseURL: process.env.VUE_APP_BASE_API,
+      imageDialogVisible: false,
+      imageUrl:'https://meal.coschat.com/static/upload/2110041324143798723799145.png',
       dialogVisibleDetail: false,
       dialogVisibleEditAdd: false,
       formScreen: {
@@ -143,6 +156,14 @@ export default {
         that.dialogVisibleDetail = true;
         that.detail = response.data;
       });
+    },
+    handleClose(){
+      that.imageDialogVisible = false
+    },
+    getImage(url){
+      let that = this
+      that.imageUrl = url
+      that.imageDialogVisible = true
     },
     handleSizeChange(val) {
       console.log(`每页 ${val} 条`);
@@ -213,6 +234,7 @@ export default {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  cursor: pointer;
 }
 .driver-box {
   .el-form {

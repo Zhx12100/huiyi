@@ -225,6 +225,9 @@ export default {
       var that = this;
       that.listLoading = true;
       let data = that.formScreen;
+      if(that.formScreendate==null){
+        that.formScreendate = ["", ""]
+      }
       data.start_time = that.formScreendate[0];
       data.end_time = that.formScreendate[1];
       getAuditList(data).then((response) => {
