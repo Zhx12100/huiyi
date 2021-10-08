@@ -7,8 +7,8 @@
       label-width="auto"
       size="medium"
     >
-      <el-form-item label="账号">
-        <el-input v-model="formScreen.username" />
+      <el-form-item label="角色名称">
+        <el-input v-model="formScreen.role_name" />
       </el-form-item>
       <el-button
         type="primary"
@@ -86,7 +86,7 @@ export default {
       formScreen: {
         page: 1,
         page_len: 10,
-        username: "",
+        role_name: "",
       },
       pageSize: 10,
       total: 0,
