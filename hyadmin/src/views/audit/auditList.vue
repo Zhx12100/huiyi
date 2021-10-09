@@ -312,7 +312,7 @@ export default {
                   type: "success",
                   message: "修改审核状态成功!",
                 });
-                that.dialogVisibleDetail = true;
+                that.dialogVisibleDetail = false;
                 that.getList();
               }
             });

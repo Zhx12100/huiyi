@@ -92,6 +92,7 @@ export default {
         console.log("获取账户详情", response);
         that.formData = response.data;
         that.oldPassword = that.formData.password
+        that.formData.freeze_flag = !that.formData.freeze_flag
       });
     },
     setData() {
@@ -107,7 +108,14 @@ export default {
         }
       }
       that.buttonLoading = true;
-      setAccount(data).then((response) => {
+      setAccount({
+        username: data.username,
+        password: data.password,
+        note: data.note,
+        freeze_flag: !data.freeze_flag,
+        user_id:data.user_id,
+        role_id:data.role_id
+      }).then((response) => {
         console.log("保存账户详情", response);
         that.$message({
           message: '保存成功',
