@@ -207,6 +207,14 @@ Page({
       });
       return false
     }
+    if (!(/^1[3456789]\d{9}$/.test(data.phone))) {
+			wx.showToast({
+				title: '手机号码格式有误',
+				icon: 'none',
+				duration: 1500
+			})
+			return false
+		}
     wx.showToast({
       title: '加载中',
       icon: 'loading',
