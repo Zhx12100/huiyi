@@ -43,10 +43,7 @@
       :data="list"
       element-loading-text="Loading"
     >
-      <el-table-column label="ID" align="center" width="55">
-        <template slot-scope="scope">
-          {{ scope.row.id }}
-        </template>
+      <el-table-column label="序号" type="index" align="center" width="55">
       </el-table-column>
       <el-table-column label="角色" align="center">
         <template slot-scope="scope">

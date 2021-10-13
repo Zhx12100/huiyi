@@ -8,10 +8,7 @@
       <el-button type="primary" :loading="listLoading" @click="getList" size="medium">查询</el-button>
     </el-form>
     <el-table v-loading="listLoading" :data="list" ref="multipleTable" element-loading-text="Loading">
-      <el-table-column label="ID" align="center" width="55">
-        <template slot-scope="scope">
-          {{ scope.row.feedback_id }}
-        </template>
+      <el-table-column label="序号" type="index" align="center" width="55">
       </el-table-column>
       <el-table-column label="用户名称" align="center">
         <template slot-scope="scope">
