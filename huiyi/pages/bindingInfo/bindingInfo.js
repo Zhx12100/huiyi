@@ -8,7 +8,8 @@ Page({
   data: {
     areaData: {
       real_name: '',
-      organize_id: ''
+      organize_id: '',
+      bindPassword:''
     }
 
   },
@@ -23,6 +24,12 @@ Page({
   bindID: function (e) {
     this.setData({
       ['areaData.organize_id']: e.detail.value
+    })
+  },
+  //组织ID
+  bindPassword: function (e) {
+    this.setData({
+      ['areaData.password']: e.detail.value
     })
   },
 
@@ -47,6 +54,14 @@ Page({
       })
       return false
     }
+    if (data.password == '') {
+      wx.showToast({
+        title: '请输入密码',
+        icon: 'none',
+        duration: 1500
+      })
+      return false
+    }
     data.openid = wx.getStorageSync('userInfo').openid
     console.log(data)
     wx.showToast({
@@ -63,7 +78,7 @@ Page({
       data: data,
       success: function (res) {
         console.log('绑定组织', res)
-        if (res.data.code == 1) {
+        if (res.data.code != 0) {
           wx.showToast({
             title: res.data.message,
             icon: 'error',

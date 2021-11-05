@@ -108,7 +108,7 @@
 }
 
 .info-box-middle .ico {
-  width: 120rpx;
+  width: 140rpx;
   text-align: left;
   font-size: 0;
   flex-shrink: 0;

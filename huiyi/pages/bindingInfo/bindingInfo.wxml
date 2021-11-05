@@ -13,11 +13,21 @@
     <view class="cont">
       <view class="inp-box">
         <view class="ico">
-          <view class="title">ID号</view>
+          <view class="title">组织ID</view>
         </view>
         <view class="right">
           <view class="tips">
             <input type="text" class="inputs" bindinput="bindID" placeholder-style="color:#ccc;" placeholder="请输入组织机构ID" />
+          </view>
+        </view>
+      </view>
+      <view class="inp-box">
+        <view class="ico">
+          <view class="title">组织密码</view>
+        </view>
+        <view class="right">
+          <view class="tips">
+            <input type="password" class="inputs" bindinput="bindPassword" placeholder-style="color:#ccc;" placeholder="请输入组织密码" />
           </view>
         </view>
       </view>
@@ -31,6 +41,7 @@
           </view>
         </view>
       </view>
+     
     </view>
     <view class="but-box">
       <button bindtap="goGuide">保存</button>

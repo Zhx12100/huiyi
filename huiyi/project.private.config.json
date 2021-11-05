@@ -17,6 +17,12 @@
           "pathName": "pages/Administration/auditBill/auditBill",
           "query": "type=2",
           "scene": null
+        },
+        {
+          "name": "pages/bindingInfo/bindingInfo",
+          "pathName": "pages/bindingInfo/bindingInfo",
+          "query": "type=1",
+          "scene": null
         }
       ]
     }
