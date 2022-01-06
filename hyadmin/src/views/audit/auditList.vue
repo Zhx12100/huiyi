@@ -167,8 +167,8 @@
         <el-form-item label="审核人：">
           {{ detail.audit_man }}
         </el-form-item>
-        <el-form-item label="理由：" v-if="detail.audit_status=='审核失败'">
-          {{ detail.audit_man }}
+        <el-form-item label="理由：" v-if="detail.audit_status=='不通过'">
+          {{ detail.audit_reason }}
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer" v-if="detail.audit_status=='审核中'">
